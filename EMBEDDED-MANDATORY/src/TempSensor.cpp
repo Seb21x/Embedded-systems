@@ -5,8 +5,8 @@ TempSensor::TempSensor(PinName pin, float beta) : _pin(pin), _beta(beta) {}
 
 float TempSensor::getTemperatureKelvin() {
     float counts = _pin.read();
-    if (counts <= 0.0f) {
-        return 0.0f;
+    if (!std::isfinite(counts) || counts <= 0.0001f || counts >= 0.9999f) {
+        return NAN;
     }
 
     float rTherm = RB * ((ADC_RES / counts) - 1.0f);
