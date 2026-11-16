@@ -1,13 +1,13 @@
 #include "LightingController.h"
 #include <algorithm>
-LightingController::LightingController(PinName pin,float dark,float bright)
- :_led(pin),_dark(dark),_bright(bright){_led.period_us(1000);_led.write(0);}
-float LightingController::calculatePercentage(float raw,float dark,float bright){
-    if(!(bright>dark))return 0;
-    return 100*std::max(0.0f,std::min(1.0f,(raw-dark)/(bright-dark)));
+LightingController::LightingController(PinName pin) : _led(pin)
+{
+    // D3 and D5 share TIM1: BOTH outputs must use the SAME period.
+    _led.period_us(500);
+    _led.write(0);
 }
-void LightingController::update(float raw){
-    _percent=calculatePercentage(raw,_dark,_bright);_duty=1-_percent/100;_led.write(_duty);
+void LightingController::update(float lightPercent)
+{
+    const float duty = 1.0f - std::max(0.0f, std::min(100.0f, lightPercent)) / 100.0f;
+    _led.write(duty);
 }
-float LightingController::percentage()const{return _percent;}
-float LightingController::duty()const{return _duty;}

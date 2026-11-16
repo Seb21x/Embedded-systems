@@ -1,11 +1,15 @@
 #include "TempSensor.h"
 #include <cmath>
 
-TempSensor::TempSensor(PinName pin, float beta) : _pin(pin), _beta(beta) {}
+TempSensor::TempSensor(PinName pin, float beta) : _pin(pin), _beta(beta)
+{
+}
 
-float TempSensor::getTemperatureKelvin() {
+float TempSensor::getTemperatureKelvin()
+{
     float counts = _pin.read();
-    if (!std::isfinite(counts) || counts <= 0.0001f || counts >= 0.9999f) {
+    if (!std::isfinite(counts) || counts <= 0.0001f || counts >= 0.9999f)
+    {
         return NAN;
     }
 
@@ -14,6 +18,7 @@ float TempSensor::getTemperatureKelvin() {
     return tempK;
 }
 
-float TempSensor::getTemperatureCelsius() {
+float TempSensor::getTemperatureCelsius()
+{
     return getTemperatureKelvin() - K_OFFSET;
 }
