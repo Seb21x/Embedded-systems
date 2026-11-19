@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 using PinName=int;
-enum {NC=-1,A0,A1,A2,D2,D3,D7,D9,D14,D15,PC_13,LED1,LED2,LED3};
+enum {NC=-1,A0,A1,A2,D2,D3,D5,D7,D9,D14,D15,PC_13,LED1,LED2,LED3};
 enum PinMode {PullDown,PullUp};
 namespace fake {
 extern std::array<float,64> analog;

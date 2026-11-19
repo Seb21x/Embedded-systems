@@ -1,18 +1,10 @@
-# Wynik weryfikacji — 2026-11-16
+# Walidacja 2026-11-19
 
-Polecenie: `bash tests/run_host_tests.sh`.
+Baza Git: 78d8bb7. Testy: `bash tests/run_host_tests.sh`.
 
-Wynik:
+- PASS: alarm, thresholds, PWM, ADC, button, filter/reset, calendar rollover, probe, LCD pages/cache.
+- PASS: full application host syntax (not ARM/Mbed build).
 
-```
-PASS: FSM, hysteresis, ACK/rearm, faults, thresholds (10000 walks), filter, PWM, ADC, debounce, LCD rows
-PASS: host syntax checks for stages 2,3,4,5,6,9
-```
-
-Kompilator hosta: g++, C++14, `-Wall -Wextra -Werror`.
-Warstwa Mbed zastąpiona atrapami z tests/fakes/mbed.h.
-Nie wykonano kompilacji ARM/Mbed, flashowania płytki ani pomiarów H.
-Testy nie weryfikują napięć, mapowania timerów w HAL, przebiegów elektrycznych,
-rzeczywistych czasów ani fizycznej wersji LCD/buzzera.
-
-Kontrola zmian: `git diff --check` — bez błędów.
+Kompilator g++, C++14, -Wall -Wextra -Werror. Użyto atrap Mbed HAL.
+Nie uruchomiono kompilatora ARM/Mbed ani płytki. Brak pomiarów elektrycznych H.
+Tabela POMIARY_H.csv ma puste wyniki do uzupełnienia na stanowisku.

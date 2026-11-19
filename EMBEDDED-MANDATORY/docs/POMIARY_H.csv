@@ -1,14 +1,14 @@
 pomiar;punkt;wartosc_docelowa;wynik_zmierzony;warunki_i_uwagi
-PWM_LED_okres;D3;1000 us;;
-PWM_LED_20_procent_HIGH;D3;200 us;;wpisz faktyczne zadane wypelnienie
-PWM_LED_50_procent_HIGH;D3;500 us;;wpisz faktyczne zadane wypelnienie
-PWM_LED_80_procent_HIGH;D3;800 us;;wpisz faktyczne zadane wypelnienie
-PWM_buzzer_okres;D9;500 us;;podczas tonu
-PWM_buzzer_HIGH;D9;250 us;;podczas tonu
-WARNING_ton;D9;100 ms;;
-WARNING_cisza;D9;900 ms;;
-ALARM_ton;D9;150 ms;;
-ALARM_cisza;D9;150 ms;;
-Probkowanie;D7;100 ms miedzy poczatkami impulsow;;ENABLE_PROBE=true
-ACK_opoznienie;PC13 i D9;zmierz - debounce 50 ms plus narzut;;nacisnij podczas tonu
-PWM_i_rytmy_z_LCD;D3 i D9;jak wyzej;;APP_STAGE=9
+PWM_LED_okres;D3;500 us;;
+PWM_LED_20_procent_HIGH;D3;100 us;;wpisz faktyczne zadane wypelnienie
+PWM_LED_50_procent_HIGH;D3;250 us;;wpisz faktyczne zadane wypelnienie
+PWM_LED_80_procent_HIGH;D3;400 us;;wpisz faktyczne zadane wypelnienie
+PWM_buzzer_okres;D5;500 us;;podczas tonu
+PWM_buzzer_HIGH;D5;250 us;;podczas tonu
+WARNING_ton;D5;100 ms;;
+WARNING_cisza;D5;900 ms;;
+ALARM_ton;D5;150 ms;;
+ALARM_cisza;D5;150 ms;;
+Probkowanie;D7;100 ms miedzy poczatkami impulsow;;D7 aktywne automatycznie
+ACK_opoznienie;PC13 i D5;zmierz - debounce 50 ms plus narzut;;nacisnij podczas tonu
+PWM_i_rytmy_z_LCD;D3 i D5;jak wyzej;;LCD aktywne
